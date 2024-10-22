@@ -7,7 +7,7 @@ const isValidId = require("../helpers/isValidId.js");
 
 const contactsRouter = express.Router();
 
-contactsRouter.get("/", isValidId, ctrlWrapper(ctrl.getAllContacts));
+contactsRouter.get("/",  ctrlWrapper(ctrl.getAllContacts));
 
 contactsRouter.get("/:id", isValidId, ctrlWrapper(ctrl.getOneContact));
 
