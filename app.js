@@ -1,11 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
-require("dotenv").config();
-const { HOST_DB } = process.env;
 
 const contactsRouter = require("./routes/contactsRouter.js");
-const { default: mongoose } = require("mongoose");
 
 const app = express();
 
@@ -24,11 +21,4 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message });
 });
 
-mongoose
-  .connect(HOST_DB)
-  .then(
-    app.listen(3000, () => {
-      console.log("Server is running. Use our API on port: 3000");
-    })
-  )
-  .catch((err) => console.log(err));
+module.exports = app;
